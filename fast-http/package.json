@@ -1,0 +1,11 @@
+{
+  "name": "iism-fast-http",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Experimental pure-HTTP (no browser) session replay for the IISM admission form.",
+  "scripts": {
+    "dry": "node submit.mjs",
+    "go": "node submit.mjs --go"
+  }
+}

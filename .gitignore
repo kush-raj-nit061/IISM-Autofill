@@ -1,0 +1,10 @@
+node_modules/
+config.json
+config.early.json
+documents/
+.chrome-profile/
+npm-debug.log*
+prefill-preview.png
+submission-result.png
+payment-step.png
+captcha-or-consent.png

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "IISM Gulmarg Form Autofiller",
+  "version": "1.0.0",
+  "description": "Autofills the IISM Gulmarg admission form (dropdowns, text fields, date of birth, declaration). Documents must be attached manually.",
+  "permissions": ["storage", "unlimitedStorage", "scripting", "activeTab", "tabs", "sidePanel"],
+  "host_permissions": ["https://admission.iismgulmarg.in/*"],
+  "action": {
+    "default_title": "IISM Autofiller (opens side panel)"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://admission.iismgulmarg.in/admission_form.aspx*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

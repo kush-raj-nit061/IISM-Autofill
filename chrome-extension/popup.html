@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IISM Autofiller</title>
+    <style>
+      :root { color-scheme: light; }
+      body {
+        font: 13px/1.4 system-ui, sans-serif;
+        margin: 0;
+        padding: 12px;
+        width: auto;
+        min-width: 260px;
+        background: #fafafa;
+        color: #1a1a1a;
+      }
+      h1 { font-size: 15px; margin: 0 0 4px; }
+      p.note { margin: 0 0 10px; color: #555; font-size: 11.5px; }
+      label { display: block; margin: 6px 0 2px; font-weight: 600; font-size: 11.5px; }
+      input, select, textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 6px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font: inherit;
+      }
+      textarea { resize: vertical; min-height: 40px; }
+      .row { display: flex; gap: 6px; }
+      .row > div { flex: 1; }
+      details { margin: 8px 0; }
+      summary { cursor: pointer; font-weight: 600; }
+      .actions { display: flex; gap: 8px; margin-top: 12px; position: sticky; bottom: 0; }
+      button {
+        flex: 1;
+        padding: 8px;
+        border: 0;
+        border-radius: 6px;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #fill { background: #1565c0; color: #fff; }
+      #save { background: #e0e0e0; color: #1a1a1a; }
+      #status { margin-top: 8px; font-size: 11.5px; color: #1565c0; min-height: 14px; }
+      .warn { color: #b00020; }
+    </style>
+  </head>
+  <body>
+    <h1>IISM Gulmarg Autofiller</h1>
+    <p class="note">
+      Open the admission form page, then click <b>Fill form</b>. Dropdowns reload the
+      page between steps — let it finish. Documents can't be auto-attached; the upload
+      boxes get highlighted for you to add manually.
+    </p>
+
+    <label for="course">Course</label>
+    <input id="course" />
+    <div class="row">
+      <div>
+        <label for="course_level">Course level</label>
+        <input id="course_level" />
+      </div>
+      <div>
+        <label for="state">State</label>
+        <input id="state" />
+      </div>
+    </div>
+
+    <label for="preferred_schedules">Preferred batches (comma separated, in order)</label>
+    <input id="preferred_schedules" placeholder="20 dec, 03 jan, 17 jan" />
+
+    <div class="row">
+      <div>
+        <label for="name">Full name</label>
+        <input id="name" />
+      </div>
+      <div>
+        <label for="father_name">Father's name</label>
+        <input id="father_name" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="date_of_birth">Date of birth (DD/MM/YYYY)</label>
+        <input id="date_of_birth" placeholder="05/12/2004" />
+      </div>
+      <div>
+        <label for="nationality">Nationality</label>
+        <input id="nationality" />
+      </div>
+    </div>
+
+    <details>
+      <summary>Address &amp; contact</summary>
+      <label for="domicile">Domicile</label>
+      <input id="domicile" />
+      <label for="house_no_apartment">House no / apartment</label>
+      <input id="house_no_apartment" />
+      <label for="street_village_colony">Street / village / colony</label>
+      <input id="street_village_colony" />
+      <div class="row">
+        <div>
+          <label for="district_city">District / city</label>
+          <input id="district_city" />
+        </div>
+        <div>
+          <label for="pincode">Pincode</label>
+          <input id="pincode" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="mobile">Mobile</label>
+          <input id="mobile" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" />
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Profile &amp; physical details</summary>
+      <div class="row">
+        <div>
+          <label for="education_qualification">Education</label>
+          <input id="education_qualification" />
+        </div>
+        <div>
+          <label for="diet">Diet</label>
+          <input id="diet" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="blood_group">Blood group</label>
+          <input id="blood_group" />
+        </div>
+        <div>
+          <label for="medical_category">Medical category</label>
+          <input id="medical_category" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="height">Height</label>
+          <input id="height" />
+        </div>
+        <div>
+          <label for="weight">Weight</label>
+          <input id="weight" />
+        </div>
+        <div>
+          <label for="waist">Waist</label>
+          <input id="waist" />
+        </div>
+        <div>
+          <label for="shoe_size">Shoe</label>
+          <input id="shoe_size" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="emergency_contact_name">Emergency name</label>
+          <input id="emergency_contact_name" />
+        </div>
+        <div>
+          <label for="emergency_contact_phone">Emergency phone</label>
+          <input id="emergency_contact_phone" />
+        </div>
+      </div>
+    </details>
+
+    <label><input type="checkbox" id="agree_to_declaration" style="width:auto" /> Tick the declaration checkbox automatically</label>
+
+    <details open>
+      <summary>Documents (saved in the extension, then auto-attached)</summary>
+      <p class="note">Pick each file once. Max ~1&nbsp;MB each (PDF/JPG/PNG). They stay saved until you replace them.</p>
+      <div id="docs"></div>
+    </details>
+
+    <div class="actions">
+      <button id="save">Save</button>
+      <button id="fill">Fill form</button>
+    </div>
+    <div id="status"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

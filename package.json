@@ -1,0 +1,14 @@
+{
+  "name": "iism-admission-autofill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local autofill helper for the IISM Gulmarg admission form",
+  "scripts": {
+    "start": "node autofill.mjs",
+    "check": "node autofill.mjs --check"
+  },
+  "dependencies": {
+    "playwright-core": "^1.56.1"
+  }
+}

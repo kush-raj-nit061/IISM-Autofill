@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MOCK Payment — Razorpay (demo only)</title>
+  <style>
+    body { font: 15px/1.6 system-ui, sans-serif; background: #0d1b2a; color: #e7eef7;
+           display: flex; min-height: 100vh; margin: 0; align-items: center; justify-content: center; }
+    .card { background: #13263b; padding: 28px 34px; border-radius: 14px; width: 360px;
+            box-shadow: 0 10px 40px rgba(0,0,0,.45); text-align: center; }
+    .brand { font-weight: 800; color: #4f9cff; letter-spacing: .5px; }
+    .amt { font-size: 30px; font-weight: 800; margin: 10px 0; }
+    .row { text-align: left; margin: 14px 0; }
+    label { font-size: 12px; opacity: .7; display: block; margin-bottom: 4px; }
+    input { width: 100%; box-sizing: border-box; padding: 10px; border-radius: 8px; border: none; }
+    #payNow { margin-top: 16px; width: 100%; padding: 12px; border: none; border-radius: 8px;
+              background: #2d7dff; color: #fff; font-weight: 700; font-size: 15px; cursor: pointer; }
+    .note { margin-top: 14px; font-size: 12px; opacity: .6; }
+  </style>
+</head>
+<body>
+  <div class="card" id="payment">
+    <div class="brand">RAZORPAY · SECURE CHECKOUT</div>
+    <div class="amt">₹ 15,000</div>
+    <div>IISM Gulmarg — Snow Skiing Course Fee</div>
+    <div class="row">
+      <label>Card / UPI (you complete this manually)</label>
+      <input id="upi" placeholder="name@bank" />
+    </div>
+    <button id="payNow">Pay Now</button>
+    <div class="note">Demo only — no real payment. The automation stops here for a human.</div>
+  </div>
+</body>
+</html>

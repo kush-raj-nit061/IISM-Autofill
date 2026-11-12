@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MOCK — IISM Admission Form (demo only)</title>
+  <style>
+    body { font: 14px/1.5 system-ui, sans-serif; margin: 0; background: #eef2f6; color: #10202e; }
+    header { background: #0b3d62; color: #fff; padding: 14px 20px; }
+    header small { opacity: .8; }
+    .wrap { max-width: 860px; margin: 18px auto; background: #fff; padding: 20px 24px;
+            border-radius: 10px; box-shadow: 0 6px 24px rgba(0,0,0,.08); }
+    h2 { margin: 22px 0 8px; font-size: 15px; color: #0b3d62; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+    label { display: block; font-weight: 600; margin-bottom: 3px; font-size: 12px; color: #334155; }
+    input, select { width: 100%; box-sizing: border-box; padding: 7px 8px; border: 1px solid #cbd5e1;
+                    border-radius: 6px; font: inherit; background: #fff; }
+    input[readonly] { background: #f1f5f9; color: #475569; }
+    .full { grid-column: 1 / -1; }
+    .seatline { display: flex; gap: 18px; margin-top: 8px; }
+    .seatline > div { flex: 1; }
+    .hint { font-size: 11px; color: #64748b; }
+    .agree { display: flex; align-items: center; gap: 8px; margin: 14px 0; }
+    .agree input { width: auto; }
+    #btnSubmit { background: #0b7a3b; color: #fff; border: none; padding: 11px 26px; border-radius: 8px;
+                 font-size: 15px; font-weight: 700; cursor: pointer; }
+    .badge { display: inline-block; background: #fde68a; color: #92400e; padding: 2px 8px; border-radius: 999px;
+             font-size: 11px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Indian Institute of Skiing &amp; Mountaineering</strong><br />
+    <small>MOCK admission form — local demo only. Not the real website. Nothing is submitted anywhere.</small>
+  </header>
+  <div class="wrap">
+    <span class="badge">DEMO MOCK</span>
+
+    <h2>Course Details</h2>
+    <div class="grid">
+      <div>
+        <label>Select Course *</label>
+        <select id="ddlCourse">
+          <option value="0">Select</option>
+          <option value="ssc-gul">Snow Skiing Courses at Gulmarg</option>
+          <option value="ssc-kar">Snow Skiing Courses at Kargil</option>
+          <option value="moi-gul">MOI Courses at Gulmarg</option>
+        </select>
+      </div>
+      <div>
+        <label>Course Level *</label>
+        <select id="ddlCourseLevel">
+          <option value="0">Select</option>
+          <option value="basic">Basic SSC</option>
+          <option value="inter">Intermediate SSC</option>
+        </select>
+      </div>
+      <div>
+        <label>Schedule of course *</label>
+        <select id="ddlScheduleCourse">
+          <option value="0">Select Schedule Course</option>
+          <option value="b1">1st Batch 20 Dec 2026 - 03 Jan 2027</option>
+          <option value="b2">2nd Batch 03 Jan 2027 - 17 Jan 2027</option>
+          <option value="b3">3rd Batch 17 Jan 2027 - 31 Jan 2027</option>
+        </select>
+      </div>
+      <div>
+        <label>State *</label>
+        <select id="ddlState">
+          <option value="0">Select</option>
+          <option value="bihar">BIHAR</option>
+          <option value="up">UTTAR PRADESH</option>
+        </select>
+      </div>
+    </div>
+    <div class="seatline">
+      <div><label>Available Seats</label><input id="txtAvailableSeat" readonly value="0" /></div>
+      <div><label>Course fee *</label><input id="txtCourseFee" readonly value="0" /></div>
+    </div>
+
+    <h2>Basic Details</h2>
+    <div class="grid">
+      <div><label>Name *</label><input id="txtName" /></div>
+      <div><label>Father's Name *</label><input id="txtFatherName" /></div>
+      <div><label>Nationality *</label><input id="txtNationality" /></div>
+      <div>
+        <label>Date of birth *</label>
+        <input id="txtDateOfBirth" placeholder="dd/MM/yyyy" />
+        <div class="hint" id="dobHint">Please Enter Date Of Birth.</div>
+      </div>
+      <div><label>Domicile</label><input id="txtDomicile" /></div>
+    </div>
+
+    <h2>Permanent Address</h2>
+    <div class="grid">
+      <div><label>House No/Apartment *</label><input id="txtHouseNoApartment" /></div>
+      <div><label>Street/Village/Colony *</label><input id="txtStreetVillageColony" /></div>
+      <div><label>District/City *</label><input id="txtDistrictCity" /></div>
+      <div><label>PIN code *</label><input id="txtPincode" /></div>
+      <div><label>Mobile No. *</label><input id="txtMobileNo" /></div>
+      <div><label>Email Id *</label><input id="txtEmailId" /></div>
+    </div>
+
+    <h2>Academic Details</h2>
+    <div class="grid">
+      <div>
+        <label>Education qualification *</label>
+        <select id="ddlEduationQualification">
+          <option value="0">Select</option>
+          <option value="grad">Graduation</option>
+          <option value="inter">Intermediate</option>
+        </select>
+      </div>
+      <div>
+        <label>Education proof</label>
+        <input type="file" id="FupEducationQualification" />
+      </div>
+      <div>
+        <label>Basic/Intermediate Skiing Certificate</label>
+        <input type="file" id="FupAnyAdventureCoursePhoto" />
+      </div>
+    </div>
+
+    <h2>Identification Details</h2>
+    <div class="grid">
+      <div>
+        <label>Vegetarian / Non-Vegetarian *</label>
+        <select id="ddlVegetarianOrNon">
+          <option value="0">Select</option>
+          <option value="veg">Vegetarian</option>
+          <option value="nonveg">Non-Vegetarian</option>
+        </select>
+      </div>
+      <div><label>Blood Group *</label><input id="txtBloodGroup" /></div>
+      <div><label>Medical Category</label><input id="txtMedicalCategory" /></div>
+      <div><label>Height</label><input id="txtHeight" /></div>
+      <div><label>Weight</label><input id="txtWeight" /></div>
+      <div><label>Waist</label><input id="txtWaist" /></div>
+      <div><label>Shoe Size</label><input id="txtShoeSize" /></div>
+    </div>
+
+    <h2>Documents</h2>
+    <div class="grid">
+      <div><label>Birth proof *</label><input type="file" id="FupBirthCertificate" /></div>
+      <div><label>Domicile proof</label><input type="file" id="FupDomicileAttachProof" /></div>
+      <div><label>Current employment proof</label><input type="file" id="FupCurrentEmployment" /></div>
+      <div><label>Photo of Applicant *</label><input type="file" id="FupPhototOfApplicant" /></div>
+      <div><label>Signature of Applicant *</label><input type="file" id="FupSignatureOfAppicant" /></div>
+      <div><label>Parent/Guardian's Signature *</label><input type="file" id="FupParentGuardianSignature" /></div>
+    </div>
+
+    <h2>Emergency Contact</h2>
+    <div class="grid">
+      <div><label>Emergency Contact Name *</label><input id="txtEmergencyContactName" /></div>
+      <div><label>Emergency Contact Phone *</label><input id="txtEmergencyContactPhone" /></div>
+    </div>
+
+    <div class="agree">
+      <input type="checkbox" id="chkIAgree" />
+      <label style="margin:0">I agree to the declaration / indemnity bond.</label>
+    </div>
+
+    <button id="btnSubmit" type="button">Submit</button>
+    <div class="hint" style="margin-top:8px">After Submit the site now moves to online payment.</div>
+  </div>
+
+  <script>
+    // Mimic the real WebForms behaviour that matters for the demo:
+    //  - selecting a schedule loads seats/fee AND (like a postback reload) clears the
+    //    file inputs and the DOB. Text fields keep their values (viewstate).
+    //  - entering DOB only "sticks" once a schedule is selected.
+    const sched = document.getElementById("ddlScheduleCourse");
+    const seats = document.getElementById("txtAvailableSeat");
+    const fee = document.getElementById("txtCourseFee");
+    const dob = document.getElementById("txtDateOfBirth");
+    const dobHint = document.getElementById("dobHint");
+    const fileInputs = Array.from(document.querySelectorAll('input[type="file"]'));
+
+    sched.addEventListener("change", () => {
+      if (sched.value !== "0") {
+        seats.value = "5";
+        fee.value = "15000";
+      } else {
+        seats.value = "0";
+        fee.value = "0";
+      }
+      // Simulate the reload wiping files + DOB.
+      fileInputs.forEach((input) => { input.value = ""; });
+      dob.value = "";
+      dobHint.textContent = "Please Enter Date Of Birth.";
+    });
+
+    dob.addEventListener("change", () => {
+      if (sched.value === "0") {
+        dob.value = ""; // cleared because no schedule picked yet
+        dobHint.textContent = "Select a schedule before entering date of birth.";
+      } else if (dob.value.trim()) {
+        dobHint.textContent = "Age verified from schedule \u2713";
+        dobHint.style.color = "#0b7a3b";
+      }
+    });
+
+    document.getElementById("btnSubmit").addEventListener("click", () => {
+      if (!document.getElementById("chkIAgree").checked) {
+        alert("Please agree to the declaration.");
+        return;
+      }
+      window.location.href = "mock-payment.html";
+    });
+  </script>
+</body>
+</html>
